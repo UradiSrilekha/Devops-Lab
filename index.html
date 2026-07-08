@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Student Registration Form</title>
+</head>
+<body>
+  <h1>Student Registration Form</h1>
+
+  <form name="myForm" onsubmit="return validateForm()">
+    Name:<br>
+    <input type="text" name="name" id="name"><br>
+
+    Email:<br>
+    <input type="email" name="email" id="email"><br>
+
+    Phone Number:<br>
+    <input type="text" name="phone" id="phone"><br>
+
+    Event:<br>
+    <select id="event">
+      <option value="">Select Event</option>
+      <option value="technical_quiz">Technical Quiz</option>
+      <option value="coding_contest">Coding Contest</option>
+      <option value="paper_presentation">Paper Presentation</option>
+    </select><br><br>
+
+    <input type="submit" value="Register">
+  </form>
+
+  <script>
+    function validateForm() {
+      var name = document.getElementById("name").value.trim();
+      var email = document.getElementById("email").value.trim();
+      var phone = document.getElementById("phone").value.trim();
+      var event = document.getElementById("event").value;
+
+      if (name === "") {
+        alert("Please enter your name");
+        return false;
+      }
+
+      if (email === "") {
+        alert("Please enter your email");
+        return false;
+      }
+
+      if (!email.includes("@")) {
+        alert("Please enter a valid email address");
+        return false;
+      }
+
+      if (phone === "") {
+        alert("Please enter your phone number");
+        return false;
+      }
+
+      if (phone.length !== 10 || isNaN(phone)) {
+        alert("Please enter a valid 10-digit phone number");
+        return false;
+      }
+
+      if (event === "") {
+        alert("Please select an event");
+        return false;
+      }
+
+      alert("Registration successful!");
+      return true;
+    }
+  </script>
+</body>
+</html>
